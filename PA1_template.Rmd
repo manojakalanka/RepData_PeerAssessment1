@@ -56,7 +56,7 @@ head(Total_Steps, 10)
 
 ```{r}
 ggplot(Total_Steps, aes(x = steps)) +
-  geom_histogram(fill = "red", binwidth = 1000) +
+  geom_histogram(fill = "blue", binwidth = 1000) +
   labs(title = "Daily Steps", x = "Steps", y = "Frequency")
 ```
 
@@ -72,7 +72,7 @@ Total_Steps[, .(Mean_Steps = mean(steps, na.rm = TRUE), Median_Steps = median(st
 ```{r}
 IntervalDT <- activityDT[, c(lapply(.SD, mean, na.rm = TRUE)), .SDcols = c("steps"), by = .(interval)] 
 
-ggplot(IntervalDT, aes(x = interval , y = steps)) + geom_line(color="red", size=1) + labs(title = "Avg. Daily Steps", x = "Interval", y = "Avg. Steps per day")
+ggplot(IntervalDT, aes(x = interval , y = steps)) + geom_line(color="blue", size=1) + labs(title = "Avg. Daily Steps", x = "Interval", y = "Avg. Steps per day")
 ```
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
